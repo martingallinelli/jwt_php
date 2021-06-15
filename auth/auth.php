@@ -74,18 +74,23 @@ class Auth
     {
         $aud = '';
         
+        // si no esta vacio el ip del cliente
         if (!empty($_SERVER['HTTP_CLIENT_IP']))
         {
             $aud = $_SERVER['HTTP_CLIENT_IP'];
+        // si no esta vacio el ip del cliente (deteccion)
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) 
         {
             $aud = $_SERVER['HTTP_X_FORWARDED_FOR'];
         } else 
         {
+            // direccion ip desde la cual está viendo la página actual el usuario
             $aud = $_SERVER['REMOTE_ADDR'];
         }
         
+        // el agente del usuario (ej. mozilla/4.5 [en] (X11; U; Linux 2.2.9 i586))
         $aud .= @$_SERVER['HTTP_USER_AGENT'];
+        // obtener el nombre de host
         $aud .= gethostname();
         
         return sha1($aud);
