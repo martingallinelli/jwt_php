@@ -19,11 +19,11 @@ class Auth
         $expires = $time + (60 * 60);
         
         $token = array(
-            // fecha y hora que se genero el token
+            // issued at: fecha y hora que se genero el token
             'iat' => $time,
-            // tiempo de expiracion del token (+1 hora)
+            // expiration time: tiempo de expiracion del token (+1 hora)
             'exp' => $expires,
-            //
+            // audience: identifica la audiencia o receptores para lo que fue emitido
             'aud' => self::aud(),
             // informacion que guarda el token
             'data' => $data
