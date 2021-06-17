@@ -45,13 +45,13 @@ if (isset($_GET['p'])) {
         <div class="grid grid-cols-2 gap-4 my-5 mx-20">
             <div class="p-5 text-center border border-grey-700 shadow-md">
                 <p class="font-bold uppercase">Crear token:</p>
-                <p><b>GET</b> /index.html?p=<i>{pagina}</i></p>
+                <p><b>GET</b> /index.php?p=<i>{pagina}</i></p>
                 <small>p = autentica / data</small>
             </div>
 
             <div class="p-5 text-center border border-grey-700 shadow">
                 <p class="font-bold uppercase">Ver datos del token:</p>
-                <p><b>GET</b> /index.html?p=<i>data</i>&t=<i>{token}</i></p>
+                <p><b>GET</b> /index.php?p=<i>data</i>&t=<i>{token}</i></p>
                 <small>token = generado en el paso anterior</small>
             </div>
         </div>
