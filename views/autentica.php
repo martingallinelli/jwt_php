@@ -9,7 +9,7 @@
 require_once '../vendor/autoload.php';
 require_once '../auth/auth.php';
 
-$usuario  = 'eduardo';
+$usuario  = 'Martin';
 $password = '123456';
 
 echo '<h3>TOKEN: </h3>';
