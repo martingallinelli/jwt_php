@@ -1,44 +1,81 @@
 # **JWT**
 
-## **INSTALACION**
+Aplicación de JWT en PHP nativo.
+
+<br>
+
+---
+### **INSTALACION**
+---
+
+<br>
 
 Ejecutar el siguiente comando dentro de la carpeta del proyecto:
 
 > composer require firebase/php-jwt
 
-## **EXPLICACION**
+<br>
 
-### **Configuración del token**
+---
+### **CONFIGURACION TOKEN**
+---
 
-~~~
-// fecha y hora actual en segundos
-$time = time();
-// fecha y hora de expiracion del token (+1 hora)
-$expires = $time + (60 * 60);
-// llave privada
-$key = 'key_private';
-// token
-$token = array(
-    // fecha y hora que se genero el token
-    'iat' => $time,
-    // tiempo de expiracion del token (+1 hora)
-    'exp' => $expires,
-    // informacion que guarda el token
-    $data = array(
-        'id' => 1,
-        'name' => 'Martin'
-    )
-);
+<br>
+
+- Fecha y hora actual en segundos
+~~~    
+    $time = time();
 ~~~
 
-### **JWT::encode(datosAguardar, secretKey)**
+- Fecha y hora de expiracion del token (+1 hora)
+~~~
+    $expires = $time + (60 * 60);
+~~~
 
-Permite codificar el token
+- Llave privada
+~~~
+    $key = 'key_private';
+~~~
 
+- Token
+~~~
+    $token = array(
+        // fecha de creación
+        'iat' => $time,
+        // fecha de expiración
+        'exp' => $expires,
+        // informacion que guarda 
+        $data = array(
+            'id' => 1,
+            'name' => 'Martin'
+        )
+    );
+~~~
+
+<br>
+
+---
+### **CODIFICAR TOKEN**
+---
+
+<br>
+
+JWT::encode(datosAguardar, secretKey)
+
+~~~
     $jwt = JWT::encode($token, $key);
+~~~
 
-### **JWT::decode(tokenCodificado, secretKey, algoritmoCodificacion)**
+<br>
 
-Permite decodificar el token
+---
+### **DECODIFICAR TOKEN**
+---
 
+<br>
+
+JWT::decode(tokenCodificado, secretKey, algoritmoCodificacion)
+
+~~~
     $jwt = JWT::decode($jwt, $key, array('HS256'));
+~~~

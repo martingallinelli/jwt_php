@@ -4,7 +4,7 @@ if (isset($_GET['p'])) {
     // convierto el contenido del parametro a letras minusculas
     $page = strtolower($_GET['p']);
     // si el parametro pagina (p) es autentica
-    if ($_GET['p'] == 'autentica') {
+    if ($_GET['p'] == 'autenticar') {
         // redirecciono a la vista segun el parametro
         header('Location: views/' . $page . '.php');
     // si el parametro pagina (p) es data
@@ -37,16 +37,19 @@ if (isset($_GET['p'])) {
 </head>
 
 <body class="bg-gray-100">
-    <div class="container mx-auto mt-2 p-4 border border-gray-300">
+    <div class="container mx-auto p-4 border border-gray-300">
         <div class="py-1 border border-green-500">
             <h1 class="text-center font-bold text-2xl md:text-4xl">Jason Web Token <br>- JWT -</h1>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 my-5 mx-20">
+        <div class="grid md:grid-cols-2 gap-4 my-5 md:mx-20">
             <div class="p-5 text-center border border-grey-700 shadow-md">
                 <p class="font-bold uppercase">Crear token:</p>
                 <p><b>GET</b> /index.php?p=<i>{pagina}</i></p>
-                <small>p = autentica / data</small>
+                <small>p = autenticar / data</small>
+                <div class="mt-3">
+                    <a href="/index.php?p=autenticar" class="px-4 py-2 border shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700">Crear</a>
+                </div>
             </div>
 
             <div class="p-5 text-center border border-grey-700 shadow">
